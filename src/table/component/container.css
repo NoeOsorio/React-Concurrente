@@ -1,7 +1,65 @@
 .container{
     overflow-x: scroll;
+    overflow-y: scroll;
+    display: flex;
+     white-space: nowrap; 
+     flex-wrap: wrap;
+    justify-content: space-around;
+    vertical-align: middle;
+
+    
+    /* max-height: 600px; */
+    background-color: #2D4571;
+    border: 1px;
+    border-radius: 5px ;
+    margin: 3px;
+    padding: 5px;
+
+  
+}
+
+.subcontainer{
+    overflow-x: scroll;
+    overflow-y: scroll;
+    display: flex;
+    
+     white-space: nowrap; 
+    justify-content: center;
+    flex-direction: column;
+    vertical-align: middle;
+
+    max-height: 600px;
+    max-width: 950px;
+    background-color: #2D4571;
+    border: 1px;
+    border-radius: 5px ;
+    margin: 3px;
+    padding: 5px;
+
+  
+}
+
+.table-container{
+    overflow-x: scroll;
   overflow-y: scroll;
   white-space: nowrap;
-    max-height: 600px
+    max-height: 600px;
+    width: 100%;    
+    background-color: #2D4571;
+    border: 1px;
+    border-radius: 5px ;
+
   
+}
+.title{
+    display: flex;
+    color: white;
+    font-size: 30px;
+    justify-content: center;
+    vertical-align: middle;
+    background-color: #7688A9;
+    border: 1px;
+    border-radius: 5px ;
+    margin: 3px;
+    padding: 5px;
 }
