@@ -1,0 +1,9 @@
+.row-container{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.row-container img{
+    max-width: 400px;
+}
