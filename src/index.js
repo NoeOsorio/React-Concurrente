@@ -6,6 +6,7 @@ import Table from './table/component/table'
 import Container from './table/component/container'
 //Cree un json hardcodeado para hacer pruebas, pero sirve para ver el funcionamiento de los componentes
 import Data from './data/procesos.json'
+import diagrama from './data/diagrama.json';
 // import Scroll from './table/component/scroll'
 
 import * as serviceWorker from './serviceWorker';
@@ -13,13 +14,13 @@ import * as serviceWorker from './serviceWorker';
 
 //Esta funcion sirve para actualizar cada x segundos 
 // setInterval(()=>{
-//     // Data.push({"id" : Date.now()})
-//     // console.log(Data)
-//     // ReactDOM.render(<Container data={Data} title="Hilos" />, document.getElementById('table'));
+//     Data.push({"id" : Date.now()})
+//     console.log(Data)
+//     ReactDOM.render(<Container data={Data} title="Hilos" />, document.getElementById('table'));
 
-// }, 10000);
+// }, 1000);
 
-    ReactDOM.render(<Container data={Data} title="Hilos" />, document.getElementById('table'));
+    ReactDOM.render(<Container data={Data} title="Hilos" diagrama={diagrama}/>, document.getElementById('table'));
 
 // ReactDOM.render(<Scroll />, document.getElementById('table'));
 // ReactDOM.render(<App />, document.getElementById('root'));

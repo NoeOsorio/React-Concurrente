@@ -5,7 +5,8 @@
     flex-wrap: wrap;
 }
 .row-container img{
-    max-width: 400px;
+    max-width: 50px;
+   
 }
 
 .root {
@@ -16,3 +17,24 @@
   .table {
     min-width: 700;
   }
+
+  .image-container{
+      /* display: flex; */
+  }
+
+  #IS_HUNGRY{
+      background-color:  #2D4571;
+    
+      /* background-color: aqua; */
+    max-width: 100px;
+    max-height: 10px;
+      border: none;
+  }
+
+  #EATING{
+    /* background-color:  #2D4571; */
+  
+    background-color: green;
+
+    border: none;
+}
