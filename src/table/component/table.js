@@ -74,6 +74,7 @@ function SimpleTable(props) {
                   {row.id}
                 </TableCell>
                 <TableCell align="center">{row.name}</TableCell>
+                <TableCell align="center">{props.date}</TableCell>
               </TableRow>
             ))}
           </TableBody>

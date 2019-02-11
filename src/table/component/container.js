@@ -3,6 +3,19 @@ import Table from './table'
 import Diagrama from './diagrama'
 import './container.css'
 
+
+var data = [
+    ["id", "Nombre", "Edad"],
+    {"id" : 1, "name": "Paquito"},
+    {"id" : 2},
+    {"id" : 3},
+    {"id" : 4},
+    {"id" : 5}
+]
+
+
+
+
 class Fila extends Component{
 
     
@@ -10,6 +23,9 @@ class Fila extends Component{
         
         var title = this.props.title;
         var diagTitle = "Diagrama"
+
+       
+
         return (
             // <Table className="container" />
             <div className="container">
@@ -39,5 +55,22 @@ class Fila extends Component{
         );
     }
 }
+// function Clock(props) {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <h2>It is {props.date.toLocaleTimeString()}.</h2>
+//       </div>
+//     );
+//   }
+  
+//   function tick() {
+//     ReactDOM.render(
+//       <Clock date={new Date()} />,
+//       document.getElementById('root')
+//     );
+//   }
+  
+//   
 
 export default Fila
