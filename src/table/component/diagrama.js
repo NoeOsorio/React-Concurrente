@@ -32,19 +32,33 @@ function SimpleTable(props) {
     function drawCells(rows) {
       let cellArray = []
         for(let i = 0; i < rows.length; i++) {
+          var id = "";
+          switch (rows[i]) {
+            case "IS_HUNGRY":
+                id= "STATE_1"
+              break;
+            case "EATING":
+              id= "STATE_2"
+            break;  
+          
+            default:
+              id="STATE_4"
+              break;
+          }
           if(rows[i] === "IS_HUNGRY"){
             img = "./img/Espera.png"
           }
           else if(rows[i] === "EATING"){
             img = "./img/Pensando.png"
           }
-             cellArray.push(<TableCell align="center" id={rows[i]} >
-              <div className="row-container">
-                <div className="image-container">
+             cellArray.push(
+             <TableCell align="center"  id="cell">
+              <div className="row-container" id={id}>
+                {/* <div className="image-container"> */}
             
-                <img src={img}></img>
+                {/* <img src={img}></img> */}
                 {rows[i]}
-                </div>
+                {/* </div> */}
                
               </div>
              </TableCell>)
@@ -73,15 +87,15 @@ function SimpleTable(props) {
 
     console.log(rows);
     return (
-      <Paper className={classes.root}>
+      <Paper className={classes.root} id="Table">
         
-        <Table className={classes.table}>
+        <Table className={classes.table} >
           
           
-            <TableBody>
+            <TableBody id="row">
             {
               rows.map(cell => (
-                <TableRow>
+                <TableRow >
                   {drawCells(cell)}
                 </TableRow>
               ))

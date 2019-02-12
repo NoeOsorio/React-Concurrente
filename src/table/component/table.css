@@ -3,38 +3,52 @@
     justify-content: space-between;
     flex-direction: column;
     flex-wrap: wrap;
+
+    margin:2px;
+    padding: 12px;
+    /* width: 100px */
 }
+
 .row-container img{
+  
     max-width: 50px;
-   
+
 }
 
-.root {
-    width: '100%';
-    margin-top: 5px;
-    overflow-x: 'scroll'
-  }
-  .table {
-    min-width: 700;
-  }
+#cell{
+  max-width: 200px;
+  padding: 0px;
+  border: none;
+}
 
-  .image-container{
-      /* display: flex; */
-  }
+#Table{
+  background-color: #2D4571;
+}
 
-  #IS_HUNGRY{
-      background-color:  #2D4571;
-    
-      /* background-color: aqua; */
-    max-width: 100px;
-    max-height: 10px;
-      border: none;
-  }
-
-  #EATING{
-    /* background-color:  #2D4571; */
+#STATE_1, #STATE_2, #STATE_3, #STATE_4, #STATE_5{
+  border: none;
+  border-radius: 10px;
   
-    background-color: green;
+  
+}
 
-    border: none;
+#row{
+    margin: 20px;
+    padding: 20px;
+}
+
+#STATE_1{
+  background-color: #C74141;
+}
+#STATE_2{
+  background-color: #349F34;
+}
+#STATE_3{
+  background-color: #335383;
+}
+#STATE_4{
+  background-color: #C79541;
+}
+#STATE_5{
+  background-color: white;
 }
