@@ -9,7 +9,7 @@ import Data from './data/procesos.json'
 import diagrama from './data/diagrama.json';
 // import Scroll from './table/component/scroll'
 import * as serviceWorker from './serviceWorker';
-import MiniDrawer from './table/component/MiniDrawer.js'
+import MiniDrawer from './menu/component/MiniDrawer.js'
 //Esta funcion sirve para actualizar cada x segundos
 // setInterval(()=>{
 //     Data.push({"id" : Date.now()})
