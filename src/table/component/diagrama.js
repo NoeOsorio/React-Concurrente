@@ -14,13 +14,12 @@ const styles = theme => ({
       width: '100%',
       marginTop: theme.spacing.unit * 3,
       overflowX: 'auto',
-      
+
     },
     table: {
       minWidth: 700,
     },
   });
-
 
   function drawCells(rows) {
     var img;
@@ -33,8 +32,8 @@ const styles = theme => ({
             break;
           case "EATING":
             id= "STATE_2"
-          break;  
-        
+          break;
+
           default:
             id="STATE_4"
             break;
@@ -48,36 +47,22 @@ const styles = theme => ({
            cellArray.push(
            <TableCell align="center"  id="cell">
             <div className="row-container" id={id}>
-              {/* <div className="image-container"> */}
-          
-              {/* <img src={img}></img> */}
-              {rows[i]}
-              {/* </div> */}
-             
+              {
+                (i == 0) ? (
+                  rows[i]
+                ):(
+                  null
+                )
+              }
+
             </div>
            </TableCell>)
       }
       return cellArray;
   }
 
-
-
-
 function SimpleTable(props) {
     const { classes } = props;
-   
-    
-    //Se llama en return()
-    
-    // <TableBody>
-    //   {
-    //     rows.map(cell => (
-    //        <TableRow>
-    //          {drawCells(cell)}
-    //        </TableRow>
-    //      ))
-    //    }
-    // </TableBody>
 
     //Recibe el objeto de data y crea los encabezados a partir del primer elemento del json
     // var headers = props.rows[0]
@@ -89,14 +74,13 @@ function SimpleTable(props) {
     console.log(rows);
     return (
       <Paper className={classes.root} id="Table">
-        
+
         <Table className={classes.table} >
-          
-          
+
             <TableBody id="row">
             {
               rows.map(cell => (
-                <TableRow >
+                <TableRow>
                   {drawCells(cell)}
                 </TableRow>
               ))
@@ -107,44 +91,8 @@ function SimpleTable(props) {
     );
   }
 
-
-
-//   function SimpleTable(props) {
-//     const { classes } = props;
-  
-//     return (
-//       <Paper className={classes.root}>
-//         <Table className={classes.table}>
-//           <TableHead>
-//             <TableRow>
-//               <TableCell>Dessert (100g serving)</TableCell>
-//               <TableCell align="right">Calories</TableCell>
-//               <TableCell align="right">Fat (g)</TableCell>
-//               <TableCell align="right">Carbs (g)</TableCell>
-//               <TableCell align="right">Protein (g)</TableCell>
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {rows.map(row => (
-//               <TableRow key={row.id}>
-//                 <TableCell component="th" scope="row">
-//                   {row.name}
-//                 </TableCell>
-//                 <TableCell align="right">{row.calories}</TableCell>
-//                 <TableCell align="right">{row.fat}</TableCell>
-//                 <TableCell align="right">{row.carbs}</TableCell>
-//                 <TableCell align="right">{row.protein}</TableCell>
-//               </TableRow>
-//             ))}
-//           </TableBody>
-//         </Table>
-//       </Paper>
-//     );
-//   }
-  
   SimpleTable.propTypes = {
     classes: PropTypes.object.isRequired,
   };
-  
-  export default withStyles(styles)(SimpleTable);
 
+  export default withStyles(styles)(SimpleTable);

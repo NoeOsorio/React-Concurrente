@@ -23,7 +23,7 @@ const styles = theme => ({
 
 function header(rows){
   var headers = []
-  
+
   for (var i = 0; i < rows.length; i++){
     headers.push(rows[i].shift())
   }
@@ -34,29 +34,26 @@ function drawCells(rows) {
   var img;
   let cellArray = []
     for(let i = 0; i < rows.length; i++) {
-      
          cellArray.push(
-         <TableCell align="center"  id="cell">
+         <TableRow align="center"  id="cell">
           <div className="row-container" >
             {/* <div className="image-container"> */}
-        
+
             {/* <img src={img}></img> */}
             {rows[i]}
             {/* </div> */}
-           
+
           </div>
-         </TableCell>)
+        </TableRow>)
     }
     return cellArray;
 }
-
-
 
 function SimpleTable(props) {
     const { classes } = props;
 
     //Recibe el objeto de data y crea los encabezados a partir del primer elemento del json
-    
+
     var headers = header(props.rows)
     //guarda las filas y columnas
     console.log(headers);
@@ -65,13 +62,13 @@ function SimpleTable(props) {
     console.log(rows);
     return (
       <Paper className={classes.root}>
-        
+
         <Table className={classes.table}>
-          
+
           <TableHead>
             <TableRow>
               {
-                
+
                 headers.map(col => (
                   //Por cada columna en headers crea una imagen con su nombre
                     <TableCell align="center">
@@ -86,18 +83,18 @@ function SimpleTable(props) {
                       </div>
                       </div>
                     </TableCell>
-                    
+
               ))}
-                      
+
             </TableRow>
-            
+
           </TableHead>
           <TableBody id="row">
             {
               rows.map(cell => (
-                <TableRow >
+                <TableCell>
                   {drawCells(cell)}
-                </TableRow>
+                </TableCell>
               ))
             }
         </TableBody>
@@ -106,49 +103,8 @@ function SimpleTable(props) {
     );
   }
 
-
-
-//   function SimpleTable(props) {
-//     const { classes } = props;
-  
-//     return (
-//       <Paper className={classes.root}>
-//         <Table className={classes.table}>
-//           <TableHead>
-//             <TableRow>
-//               <TableCell>Dessert (100g serving)</TableCell>
-//               <TableCell align="right">Calories</TableCell>
-//               <TableCell align="right">Fat (g)</TableCell>
-//               <TableCell align="right">Carbs (g)</TableCell>
-//               <TableCell align="right">Protein (g)</TableCell>
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {rows.map(row => (
-//               <TableRow key={row.id}>
-//                 <TableCell component="th" scope="row">
-//                   {row.name}
-//                 </TableCell>
-//                 <TableCell align="right">{row.calories}</TableCell>
-//                 <TableCell align="right">{row.fat}</TableCell>
-//                 <TableCell align="right">{row.carbs}</TableCell>
-//                 <TableCell align="right">{row.protein}</TableCell>
-//               </TableRow>
-//             ))}
-//           </TableBody>
-//         </Table>
-//       </Paper>
-//     );
-//   }
-  
   SimpleTable.propTypes = {
     classes: PropTypes.object.isRequired,
   };
-  
+
   export default withStyles(styles)(SimpleTable);
-
-// class Table extends React.Component {
-//     render(){
-
-//     }
-// }
