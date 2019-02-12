@@ -10,9 +10,8 @@
 }
 
 .row-container img{
-  
-    max-width: 50px;
 
+    max-width: 50px;
 }
 
 #cell{
@@ -26,15 +25,14 @@
 }
 
 #STATE_1, #STATE_2, #STATE_3, #STATE_4, #STATE_5{
-  border: none;
-  border-radius: 10px;
-  
-  
+  border-right: solid;
+
 }
 
 #row{
     margin: 20px;
     padding: 20px;
+    border-bottom: solid;
 }
 
 #STATE_1{
