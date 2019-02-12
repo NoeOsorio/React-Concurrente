@@ -43,7 +43,7 @@ class Fila extends Component{
                             {title}
                         </div>
                     <div className="table-container">
-                        <Table author="Noe" rows={this.props.data}/>
+                        <Table author="Noe" rows={this.props.diagrama}/>
                     </div>
                 
                 </div>

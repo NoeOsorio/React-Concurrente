@@ -21,7 +21,34 @@ const styles = theme => ({
   });
 
 
+function header(rows){
+  var headers = []
+  
+  for (var i = 0; i < rows.length; i++){
+    headers.push(rows[i].shift())
+  }
+  return headers;
+}
 
+function drawCells(rows) {
+  var img;
+  let cellArray = []
+    for(let i = 0; i < rows.length; i++) {
+      
+         cellArray.push(
+         <TableCell align="center"  id="cell">
+          <div className="row-container" >
+            {/* <div className="image-container"> */}
+        
+            {/* <img src={img}></img> */}
+            {rows[i]}
+            {/* </div> */}
+           
+          </div>
+         </TableCell>)
+    }
+    return cellArray;
+}
 
 
 
@@ -29,11 +56,11 @@ function SimpleTable(props) {
     const { classes } = props;
 
     //Recibe el objeto de data y crea los encabezados a partir del primer elemento del json
-    var headers = props.rows[0]
+    
+    var headers = header(props.rows)
     //guarda las filas y columnas
     console.log(headers);
     var rows = props.rows
-    var title = "Hilos"
 
     console.log(rows);
     return (
@@ -65,19 +92,15 @@ function SimpleTable(props) {
             </TableRow>
             
           </TableHead>
-          <TableBody>
-            {rows.map(row => (
-                                //Por cada fila en rows llena la tabla
-
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row" align="center">
-                  {row.id}
-                </TableCell>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{props.date}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+          <TableBody id="row">
+            {
+              rows.map(cell => (
+                <TableRow >
+                  {drawCells(cell)}
+                </TableRow>
+              ))
+            }
+        </TableBody>
         </Table>
       </Paper>
     );
