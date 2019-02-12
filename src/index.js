@@ -9,7 +9,7 @@ import Data from './data/procesos.json'
 import diagrama from './data/diagrama.json';
 // import Scroll from './table/component/scroll'
 import * as serviceWorker from './serviceWorker';
-import MiniDrawer from './menu/component/MiniDrawer.js'
+import Main from './menu/component/Main.js'
 //Esta funcion sirve para actualizar cada x segundos
 // setInterval(()=>{
 //     Data.push({"id" : Date.now()})
@@ -19,7 +19,7 @@ import MiniDrawer from './menu/component/MiniDrawer.js'
 // }, 1000);
 
     ReactDOM.render(<Container data={Data} title="Hilos" diagrama={diagrama}/>, document.getElementById('table'));
-    ReactDOM.render(<MiniDrawer/>, document.getElementById('root'));
+    ReactDOM.render(<Main/>, document.getElementById('root'));
 // ReactDOM.render(<Scroll />, document.getElementById('table'));
 // ReactDOM.render(<App />, document.getElementById('root'));
 //Se le va a pasar el objeto json "Data"

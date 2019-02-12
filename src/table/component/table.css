@@ -21,7 +21,8 @@
 }
 
 #Table{
-  background-color: #2D4571;
+  background-color: #eee;
+  border: none;
 }
 
 #STATE_1, #STATE_2, #STATE_3, #STATE_4, #STATE_5{

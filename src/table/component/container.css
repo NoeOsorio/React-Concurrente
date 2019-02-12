@@ -10,12 +10,13 @@
 
 
     /* max-height: 600px; */
-    background-color: white;
+    background-color: #eee;
     border: 1px;
     border-radius: 5px ;
     margin: 3px;
     padding: 5px;
 
+    margin-top: 60px;
     margin-left: 80px;
     margin-right: 20px;
 
@@ -34,7 +35,7 @@
 
     max-height: 600px;
     max-width: 950px;
-    background-color: white;
+    background-color: #eee;
     border: 1px;
     border-radius: 5px ;
     margin: 3px;
@@ -49,21 +50,41 @@
   white-space: nowrap;
     max-height: 600px;
     width: 100%;
-    background-color: white;
+    background-color: #eee;
     border: 1px;
     border-radius: 5px ;
 
 
 }
+
+.tab-container{
+    display: flex;
+    vertical-align: top
+}
+
+.tab-sub{
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+.tab-sub div{
+    background-color: #3F52B5;
+    color: white;
+}
+
 .title{
     display: flex;
     color: white;
     font-size: 30px;
     justify-content: center;
     vertical-align: middle;
-    background-color: #7688A9;
+    background-color: #3F52B5;
     border: 1px;
     border-radius: 5px ;
     margin: 3px;
     padding: 5px;
 }
+
