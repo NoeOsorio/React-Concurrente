@@ -31,16 +31,33 @@ function header(rows){
 }
 
 function drawCells(rows) {
-  var img;
+  var text;
   let cellArray = []
+
     for(let i = 0; i < rows.length; i++) {
+      switch (rows[i].state) {
+        case "0":
+            text = "Hungry"
+          break;
+        case "1":
+          text = "Eating"
+        break;
+
+        case "2":
+          text = "Thinking"
+          break;
+          
+        default:
+          text = ""
+          break;
+      }
          cellArray.push(
          <TableRow align="center"  id="cell">
           <div className="row-container" >
             {/* <div className="image-container"> */}
 
             {/* <img src={img}></img> */}
-            {rows[i]}
+            {text}
             {/* </div> */}
 
           </div>
@@ -54,7 +71,8 @@ function SimpleTable(props) {
 
     //Recibe el objeto de data y crea los encabezados a partir del primer elemento del json
 
-    var headers = header(props.rows)
+    //var headers = header(props.rows)
+    var headers = ["Filosofo 1", "Filosofo 2", "Filosofo 3", "Filosofo 4", "Filosofo 5"]
     //guarda las filas y columnas
     console.log(headers);
     var rows = props.rows

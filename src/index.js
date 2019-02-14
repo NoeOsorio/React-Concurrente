@@ -18,7 +18,7 @@ import Main from './menu/component/Main.js'
 
 // }, 1000);
 
-    ReactDOM.render(<Container data={Data} title="Hilos" diagrama={diagrama}/>, document.getElementById('table'));
+    ReactDOM.render(<Container title="Hilos"/>, document.getElementById('table'));
     ReactDOM.render(<Main/>, document.getElementById('root'));
 // ReactDOM.render(<Scroll />, document.getElementById('table'));
 // ReactDOM.render(<App />, document.getElementById('root'));
