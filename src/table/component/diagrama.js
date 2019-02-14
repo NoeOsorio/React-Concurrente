@@ -22,15 +22,16 @@ const styles = theme => ({
   });
 
   function drawCells(rows) {
-    var img;
+    var id;
     let cellArray = []
       for(let i = 0; i < rows.length; i++) {
-        var id = "";
-        switch (rows[i]) {
-          case "IS_HUNGRY":
+       id = "";
+        console.log(rows[i].state);
+        switch (rows[i].state) {
+          case "0":
               id= "STATE_1"
             break;
-          case "EATING":
+          case "1":
             id= "STATE_2"
           break;
 
@@ -38,18 +39,12 @@ const styles = theme => ({
             id="STATE_4"
             break;
         }
-        if(rows[i] === "IS_HUNGRY"){
-          img = "./img/Espera.png"
-        }
-        else if(rows[i] === "EATING"){
-          img = "./img/Pensando.png"
-        }
            cellArray.push(
            <TableCell align="center"  id="cell">
             <div className="row-container" id={id}>
               {
                 (i == 0) ? (
-                  rows[i]
+                  rows[i].state
                 ):(
                   null
                 )
