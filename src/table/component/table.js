@@ -9,6 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import './table.css';
 
+
+
 const styles = theme => ({
     root: {
       width: '100%',
@@ -37,14 +39,14 @@ function drawCells(rows) {
     for(let i = 0; i < rows.length; i++) {
       switch (rows[i].state) {
         case "0":
-            text = "Hungry"
+            text = "Estado 1"
           break;
         case "1":
-          text = "Eating"
+          text = "Estado 2"
         break;
 
         case "2":
-          text = "Thinking"
+          text = "Estado 3"
           break;
           
         default:
@@ -72,9 +74,9 @@ function SimpleTable(props) {
     //Recibe el objeto de data y crea los encabezados a partir del primer elemento del json
 
     //var headers = header(props.rows)
-    var headers = ["Filosofo 1", "Filosofo 2", "Filosofo 3", "Filosofo 4", "Filosofo 5"]
+    var headers = props.headers
     //guarda las filas y columnas
-    console.log(headers);
+    // console.log(headers);
     var rows = props.rows
 
     console.log(rows);

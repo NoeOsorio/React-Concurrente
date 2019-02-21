@@ -10,13 +10,16 @@ import Fab from "@material-ui/core/Fab";
 import CheckIcon from "@material-ui/icons/Check";
 import SaveIcon from "@material-ui/icons/PlayArrow";
 
+//Data
+import data from '../../data/send'
+
 const styles = theme => ({
   root: {
     display: "flex",
     alignItems: "center",
-    position : "fixed",
-    bottom:0,
-     right:0,
+    position: "fixed",
+    bottom: 0,
+    right: 0,
   },
   wrapper: {
     margin: theme.spacing.unit,
@@ -45,33 +48,85 @@ const styles = theme => ({
   }
 });
 
+
 class RunButton extends React.Component {
   state = {
     loading: false,
-    success: false
+    success: false,
+    obj: [],
+    headers: []
   };
 
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
 
+
   handleButtonClick = () => {
-    if (!this.state.loading) {
-      this.setState(
-        {
-          success: false,
-          loading: true
-        },
-        () => {
-          this.timer = setTimeout(() => {
-            this.setState({
-              loading: false,
-              success: true
-            });
-          }, 1000);
-        }
-      );
-    }
+    fetch('http://localhost:8080/selection', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "POST",
+      
+      body: JSON.stringify(data.getSender())
+    }).then(() => {
+      console.log(data.getSender())
+      fetch('http://localhost:8080/data')
+        .then(response => {
+          return response.json();
+        })
+        .then(threads => {
+          this.setState({ obj: data.storeRes(threads),  headers: data.getHeaders() })
+
+        });
+    })
+    // if (!this.state.loading) {
+    //   this.setState(
+    //     {
+    //       success: false,
+    //       loading: true
+    //     },
+    //     () => {
+    //       fetch('http://localhost:8080/selection', {
+    //         headers: {
+    //           'Accept': 'application/json',
+    //           'Content-Type': 'application/json'
+    //         },
+    //         method: "POST",
+    //         body: JSON.stringify(send.getSender())
+    //       })
+    //         .then(() => {
+    //           console.log("Se bizo la seleccion ")
+    //           fetch('http://localhost:8080/data')
+    //             .then(response => {
+    //               return response.json();
+    //             })
+    //             .then(threads => {
+    //               console.log("Se bizo la get de la data ")
+    //               console.log(threads)
+    //               return send.storeRes(threads)
+    //             })
+
+    //           this.setState({
+    //             loading: false,
+    //             success: true
+    //           });
+
+    //         })
+    //         .catch(err => {
+    //           this.setState({
+    //             loading: false,
+    //             success: false
+    //           });
+    //           return console.log(err)
+    //         })
+    //         .then(threads => this.setState({ obj: threads, didLoad: true }));
+
+    //     }
+    //   );
+    // }
   };
 
   render() {

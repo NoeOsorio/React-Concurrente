@@ -68,11 +68,15 @@
     flex-direction: column;
     justify-content: space-around;
     padding-top: 20px;
+    
 }
 
 .tab-sub div{
     background-color: #3F52B5;
+    border-radius: 10px;
     color: white;
+    margin: 5px;
+    padding: 5px;
 }
 
 .title{

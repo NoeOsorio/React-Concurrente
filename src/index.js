@@ -14,12 +14,12 @@ import Main from './menu/component/Main.js'
 // setInterval(()=>{
 //     Data.push({"id" : Date.now()})
 //     console.log(Data)
-//     ReactDOM.render(<Container data={Data} title="Hilos" />, document.getElementById('table'));
-
-// }, 1000);
+    // ReactDOM.render(<Container data={Data} title="Hilos" />, document.getElementById('table'));
 
     ReactDOM.render(<Container title="Hilos"/>, document.getElementById('table'));
     ReactDOM.render(<Main/>, document.getElementById('root'));
+// }, 1000);
+
 // ReactDOM.render(<Scroll />, document.getElementById('table'));
 // ReactDOM.render(<App />, document.getElementById('root'));
 //Se le va a pasar el objeto json "Data"

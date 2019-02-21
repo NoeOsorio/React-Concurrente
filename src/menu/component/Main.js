@@ -54,8 +54,8 @@ const icons = {menu: <MenuIcon />,
               stars: <Stars />}
 
 
-const problemas = ["Productor - Consumidor", "Filosofos"];
-const algoritmos = ["Mutex"];
+const problemas = [ {"titulo": "Productor - Consumidor", "value": "PRODUCER_CONSUMER"}, {"titulo": "Filosofos", "value": "PHILOSOPHERS_DINNER"}];
+const algoritmos = [{"titulo": "Mutex" , "value": "MUTEX"}];
 
 const styles = theme => ({
   root: {
@@ -199,7 +199,7 @@ class MiniDrawer extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap id="Title">
-              Concurrente con problema {this.state.problema}
+              Concurrente
             </Typography>
           </Toolbar>
         </AppBar>
@@ -245,9 +245,9 @@ class MiniDrawer extends React.Component {
               <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   {problemas.map(value =>(
-                      <ListItem button className={classes.nested} key={value} onClick={(e) => this.handleStoreProblem(value, e)}>
+                      <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreProblem(value.value, e)}>
                         <ListItemIcon> {icons.stars} </ListItemIcon>
-                        <ListItemText inset primary={value}/>
+                        <ListItemText inset primary={value.titulo}/>
                       </ListItem>
                   ))}
                   
@@ -262,9 +262,9 @@ class MiniDrawer extends React.Component {
               <Collapse in={this.state.algOpen} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   {algoritmos.map(value =>(
-                      <ListItem button className={classes.nested} key={value} onClick={(e) => this.handleStoreAlg(value, e)}>
+                      <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreAlg(value.value, e)}>
                         <ListItemIcon> {icons.code} </ListItemIcon>
-                        <ListItemText inset primary={value}/>
+                        <ListItemText inset primary={value.titulo}/>
                       </ListItem>
                   ))}
                   

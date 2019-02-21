@@ -26,7 +26,7 @@ const styles = theme => ({
     let cellArray = []
       for(let i = 0; i < rows.length; i++) {
        id = "";
-        console.log(rows[i].state);
+        // console.log(rows[i].state);
         switch (rows[i].state) {
           case "0":
               id= "STATE_1"
@@ -42,12 +42,7 @@ const styles = theme => ({
            cellArray.push(
            <TableCell align="center"  id="cell">
             <div className="row-container" id={id}>
-              {
-                (i == 0) ? (
-                  rows[i].state
-                ):(
-                  null
-                )
+              {rows[i].state
               }
 
             </div>
@@ -66,7 +61,7 @@ function SimpleTable(props) {
     var rows = props.rows
     var title = "Hilos"
 
-    console.log(rows);
+    // console.log(rows);
     return (
       <Paper className={classes.root} id="Table">
 
