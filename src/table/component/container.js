@@ -6,8 +6,8 @@ import './container.css'
 
 import data from '../../data/send'
 
-// var urlGet =  "http://172.31.65.35:8080/data";
-// var urlPost = "http://172.31.65.35:8080/selection";
+// var urlGet =  "http://172.31.12.24:8080/data";
+// var urlPost = "http://172.31.12.24:8080/selection";
 
 var urlGet =  "http://localhost:8080/data";
 var urlPost = "http://localhost:8080/selection";
@@ -18,7 +18,8 @@ class Container extends Component {
     this.state = {
       obj: [],
       didLoad: false,
-      headers: []
+      headers: [],
+      estados: []
     };
   }
 
@@ -41,7 +42,7 @@ class Container extends Component {
           return response.json();
         })
         .then(threads => {
-          this.setState({ obj: data.storeRes(threads), didLoad: true, headers: data.getHeaders() })
+          this.setState({ obj: data.storeRes(threads), didLoad: true, headers: data.getHeaders(), estados :data.getEstados() })
 
         });
     })

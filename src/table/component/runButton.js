@@ -63,25 +63,29 @@ class RunButton extends React.Component {
 
 
   handleButtonClick = () => {
-    fetch('http://localhost:8080/selection', {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      method: "POST",
+    // fetch('http://localhost:8080/selection', {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   method: "POST",
       
-      body: JSON.stringify(data.getSender())
-    }).then(() => {
-      console.log(data.getSender())
-      fetch('http://localhost:8080/data')
-        .then(response => {
-          return response.json();
-        })
-        .then(threads => {
-          this.setState({ obj: data.storeRes(threads),  headers: data.getHeaders() })
+    //   body: JSON.stringify(data.getSender())
+    // }).then(() => {
+    //   console.log(data.getSender())
+    //   fetch('http://localhost:8080/data')
+    //     .then(response => {
+    //       return response.json();
+    //     })
+    //     .then(threads => {
+    //       this.setState({ obj: data.storeRes(threads),  headers: data.getHeaders() })
 
-        });
-    })
+    //     });
+    // })
+
+    window.location.reload()
+
+
     // if (!this.state.loading) {
     //   this.setState(
     //     {

@@ -5,8 +5,9 @@ var sender = { "problema": "READERS_WRITERS", "algoritmo": "MUTEX" }
 // var sender = { "problema": "SLEEPING_BARBER", "algoritmo": "MUTEX" }
 // var sender = { "problema": "SMOKERS", "algoritmo": "MUTEX" }
 
-
+var estados = []
 var res = []
+var headers
 
 //Headers
 var hPC = ["Productor", "Consumidor"]
@@ -15,8 +16,12 @@ var hLE = ["Lector 1", "Lector 2", "Lector 3", "Lector 4","Lector 5", "Escritor 
 var hBarbero = ["Barbero", "Cliente 1", "Cliente 2", "Cliente 3", "Cliente 4", "Cliente 5"];
 var hFumadores = ["Arbitro", "Fumador 1", "Fumador 2", "Fumador 3"]
 
-
-var headers
+//Estados
+var ePC = ["Esperando", "Produciendo/Consumiendo"]
+var eFilosofos = ["Hambriento", "Comiendo", "Pensando"];
+var eLE = ["Esperando", "Leyendo", "Escribiendo"];
+var eBarbero = ["En silla", "Fuera de silla"];
+var eFumadores = ["Esperando", "Fumando"]
 
 module.exports.storeProblem = function (value) {
     // sender[0]=value;
@@ -92,4 +97,28 @@ module.exports.getHeaders = function () {
     }
 
     return headers
+}
+
+module.exports.getEstados = function(){
+    switch (sender.problema) {
+        case "PRODUCER_CONSUMER":
+            estados = ePC;
+            break;
+        case "PHILOSOPHERS_DINNER":
+            estados = eFilosofos;
+            break;
+        case "READERS_WRITERS":
+            estados = eLE;
+            break;
+        case "SLEEPING_BARBER":
+            estados = eBarbero;
+            break;
+        case "SMOKERS":
+            estados = eFumadores;
+            break;
+        default:
+            estados = ["Estados"]
+            break;
+    }
+    return estados
 }

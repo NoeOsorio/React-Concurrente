@@ -43,19 +43,24 @@ import './Menu.css';
 const drawerWidth = 240;
 
 
-const icons = {menu: <MenuIcon />, 
-              left: <ChevronLeftIcon />, 
-              right: <ChevronRightIcon />, 
-              inbox: <InboxIcon />, 
-              mail: <MailIcon />, 
-              code: <CodeIcon />,
-              problem: <Feedback />,
-              help: <Help />,
-              stars: <Stars />}
+const icons = {
+  menu: <MenuIcon />,
+  left: <ChevronLeftIcon />,
+  right: <ChevronRightIcon />,
+  inbox: <InboxIcon />,
+  mail: <MailIcon />,
+  code: <CodeIcon />,
+  problem: <Feedback />,
+  help: <Help />,
+  stars: <Stars />
+}
 
 
-const problemas = [ {"titulo": "Productor - Consumidor", "value": "PRODUCER_CONSUMER"}, {"titulo": "Filosofos", "value": "PHILOSOPHERS_DINNER"}];
-const algoritmos = [{"titulo": "Mutex" , "value": "MUTEX"}];
+const problemas = [{ "titulo": "Productor - Consumidor", "value": "PRODUCER_CONSUMER" },
+                    { "titulo": "Filosofos", "value": "PHILOSOPHERS_DINNER" },
+                    { "titulo": "Lectores -Escritores", "value": "READERS_WRITERS" },
+                    { "titulo": "Barbero Dormilon", "value": "SLEEPING_BARBER" }];
+const algoritmos = [{ "titulo": "Mutex", "value": "MUTEX" }];
 
 const styles = theme => ({
   root: {
@@ -66,7 +71,7 @@ const styles = theme => ({
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
-      
+
     }),
   },
   appBarShift: {
@@ -85,7 +90,7 @@ const styles = theme => ({
     display: 'none',
   },
   drawer: {
-    
+
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -134,7 +139,7 @@ class MiniDrawer extends React.Component {
     listOpen: false,
     algOpen: false,
     //problema
-    problema:"Problema 1",
+    problema: "Problema 1",
     alg: "Algoritmo 1"
 
   };
@@ -143,14 +148,14 @@ class MiniDrawer extends React.Component {
     clearTimeout(this.timer);
   }
 
-  
+
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
 
   handleDrawerClose = () => {
-    this.setState({ open: false , listOpen: false, algOpen: false});
+    this.setState({ open: false, listOpen: false, algOpen: false });
   };
 
   handleList = () => {
@@ -176,7 +181,7 @@ class MiniDrawer extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-    
+
 
     return (
       <div className={classes.root}>
@@ -216,7 +221,7 @@ class MiniDrawer extends React.Component {
             }),
           }}
           open={this.state.open}
-          
+
         >
           <div className={classes.toolbar} id="lateral">
             <IconButton onClick={this.handleDrawerClose}>
@@ -225,57 +230,57 @@ class MiniDrawer extends React.Component {
           </div>
           <Divider />
           <List >
-              <ListItem button key={"Archivo"} >
-                    <ListItemIcon>{icons.inbox}</ListItemIcon>
-                    <ListItemText primary={"Archivo"} />
-              </ListItem>
-              <ListItem button key={"Ayuda"} >
-                    <ListItemIcon>{icons.help}</ListItemIcon>
-                    <ListItemText primary={"Ayuda"} />
-              </ListItem>
+            <ListItem button key={"Archivo"} >
+              <ListItemIcon>{icons.inbox}</ListItemIcon>
+              <ListItemText primary={"Archivo"} />
+            </ListItem>
+            <ListItem button key={"Ayuda"} >
+              <ListItemIcon>{icons.help}</ListItemIcon>
+              <ListItemText primary={"Ayuda"} />
+            </ListItem>
           </List>
           <Divider />
           <List>
-              <ListItem button key={"Problemas"} onClick={this.handleList}>
-                    <ListItemIcon>{icons.problem}</ListItemIcon>
-                    <ListItemText primary={"Problemas"} />
-                    {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              {/* Sublista de problemas */}
-              <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {problemas.map(value =>(
-                      <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreProblem(value.value, e)}>
-                        <ListItemIcon> {icons.stars} </ListItemIcon>
-                        <ListItemText inset primary={value.titulo}/>
-                      </ListItem>
-                  ))}
-                  
-                </List>
-              </Collapse>
-              <ListItem button key={"Algoritmos"} onClick={this.handleAlg}>
-                    <ListItemIcon>{icons.code}</ListItemIcon>
-                    <ListItemText primary={"Algoritmos"} />
-                    {this.state.algOpen ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              {/* Sublista de problemas */}
-              <Collapse in={this.state.algOpen} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  {algoritmos.map(value =>(
-                      <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreAlg(value.value, e)}>
-                        <ListItemIcon> {icons.code} </ListItemIcon>
-                        <ListItemText inset primary={value.titulo}/>
-                      </ListItem>
-                  ))}
-                  
-                </List>
-              </Collapse>
-              
+            <ListItem button key={"Problemas"} onClick={this.handleList}>
+              <ListItemIcon>{icons.problem}</ListItemIcon>
+              <ListItemText primary={"Problemas"} />
+              {this.state.listOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            {/* Sublista de problemas */}
+            <Collapse in={this.state.listOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {problemas.map(value => (
+                  <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreProblem(value.value, e)}>
+                    <ListItemIcon> {icons.stars} </ListItemIcon>
+                    <ListItemText inset primary={value.titulo} />
+                  </ListItem>
+                ))}
+
+              </List>
+            </Collapse>
+            <ListItem button key={"Algoritmos"} onClick={this.handleAlg}>
+              <ListItemIcon>{icons.code}</ListItemIcon>
+              <ListItemText primary={"Algoritmos"} />
+              {this.state.algOpen ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            {/* Sublista de problemas */}
+            <Collapse in={this.state.algOpen} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {algoritmos.map(value => (
+                  <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreAlg(value.value, e)}>
+                    <ListItemIcon> {icons.code} </ListItemIcon>
+                    <ListItemText inset primary={value.titulo} />
+                  </ListItem>
+                ))}
+
+              </List>
+            </Collapse>
+
           </List>
-         
+
         </Drawer>
-        
-        
+
+
       </div>
     );
   }
