@@ -32,23 +32,22 @@ function header(rows){
   return headers;
 }
 
-function drawCells(rows) {
+function drawCells(rows, states) {
   var text;
   let cellArray = []
-
     for(let i = 0; i < rows.length; i++) {
       switch (rows[i].state) {
         case "0":
-            text = "Estado 1"
+            text = states[0];
           break;
         case "1":
-          text = "Estado 2"
+          text = states[1];
         break;
 
         case "2":
-          text = "Estado 3"
+          text = states[2];
           break;
-          
+
         default:
           text = ""
           break;
@@ -79,7 +78,7 @@ function SimpleTable(props) {
     // console.log(headers);
     var rows = props.rows
 
-    console.log(rows);
+    console.log(props.stateNames);
     return (
       <Paper className={classes.root}>
 
@@ -113,7 +112,7 @@ function SimpleTable(props) {
             {
               rows.map(cell => (
                 <TableCell>
-                  {drawCells(cell)}
+                  {drawCells(cell, props.stateNames)}
                 </TableCell>
               ))
             }
