@@ -61,7 +61,7 @@ function SimpleTable(props) {
     var rows = props.rows
     var title = "Hilos"
 
-    // console.log(rows);
+    //console.log(rows);
     return (
       <Paper className={classes.root} id="Table">
 

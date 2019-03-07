@@ -19,55 +19,57 @@ class Container extends Component {
       obj: [],
       didLoad: false,
       headers: [],
-      estados: []
+      estados: [],
+      sender: data.getSender(),
     };
+    this.handleRunClick = this.handleRunClick.bind(this);
   }
 
   componentDidMount() {
 
 
     console.log("Component did mount!");
+      fetch(urlGet)
+        .then(response => response.json())
+        .then(threads => {
+          console.log(threads);
+          this.setState({ obj: /*data.storeRes(*/threads/*)*/, didLoad: true, headers: data.getHeaders(), estados: data.getEstados()})
+        });
+        console.log(this.state.estados);
+        console.log(this.state.headers);
+  }
 
-    fetch(urlPost, {
+handleRunClick(clicked) {
+    fetch('http://localhost:8080/selection', {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       method: "POST",
       body: JSON.stringify(data.getSender())
-    }).then(() => {
+    });
+  window.setTimeout(this.refresh(), 1000);
+}
 
-      fetch(urlGet)
-        .then(response => {
-          return response.json();
-        })
-        .then(threads => {
-          this.setState({ obj: data.storeRes(threads), didLoad: true, headers: data.getHeaders(), estados :data.getEstados() })
-
-        });
-    })
-
-
-
-  }
-
-
+refresh() {
+  fetch(urlGet)
+    .then(response => response.json())
+    .then(threads => {
+      this.setState({ obj: /*data.storeRes(*/threads/*)*/, headers: data.getHeaders(), estados :data.getEstados()})
+    });
+    console.log(this.state.obj);
+    console.log(this.state.estados);
+    console.log(this.state.headers);
+}
 
   render() {
     var title = this.props.title;
     var diagTitle = "Diagrama"
 
-    // setInterval(() => {
-    //   this.setState({ obj: data.getResponse(), headers: data.getHeaders() })
-
-    // }, 100000);
-
     return (
-
-      // <Table className="container" />
       <div className="container">
         <div>
-          <Run id="float" />
+          <Run id="float" onRunClick={this.handleRunClick}/>
         </div>
         {
           (this.state.didLoad) ? (
@@ -84,7 +86,6 @@ class Container extends Component {
                   ))}
                 </div>
                 <div className="table-container">
-
                   <Diagrama author="Noe" rows={this.state.obj} />
                 </div>
               </div>
@@ -99,7 +100,7 @@ class Container extends Component {
                 {title}
               </div>
               <div className="table-container">
-                <Table author="Noe" rows={this.state.obj} headers={this.state.headers} />
+                <Table author="Noe" rows={this.state.obj} headers={this.state.headers} stateNames={this.state.estados}/>
               </div>
             </div>
           ) : (

@@ -56,11 +56,19 @@ const icons = {
 }
 
 
-const problemas = [{ "titulo": "Productor - Consumidor", "value": "PRODUCER_CONSUMER" },
+const problemas = [
+                    { "titulo": "Productor - Consumidor", "value": "PRODUCER_CONSUMER" },
                     { "titulo": "Filosofos", "value": "PHILOSOPHERS_DINNER" },
                     { "titulo": "Lectores -Escritores", "value": "READERS_WRITERS" },
-                    { "titulo": "Barbero Dormilon", "value": "SLEEPING_BARBER" }];
-const algoritmos = [{ "titulo": "Mutex", "value": "MUTEX" }];
+                    { "titulo": "Barbero Dormilon", "value": "SLEEPING_BARBER" },
+                    { "titulo": "Fumadores", "value": "SMOKERS"}
+                  ];
+                  
+const algoritmos = [
+                    { "titulo": "Mutex", "value": "MUTEX" },
+                    {"titulo": "Semaforos", "value": "SEMAPHORE"},
+                    {"titulo": "Variables de Condicion", "value": "MUTEXCONVAR"}
+                  ];
 
 const styles = theme => ({
   root: {
