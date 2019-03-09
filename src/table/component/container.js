@@ -6,11 +6,12 @@ import './container.css'
 
 import data from '../../data/send'
 
-// var urlGet =  "http://172.31.12.24:8080/data";
-// var urlPost = "http://172.31.12.24:8080/selection";
+var serverURL = "http://172.31.8.193"
+var urlGet =  serverURL +":8080/data";
+var urlPost = serverURL +":8080/selection";
 
-var urlGet =  "http://localhost:8080/data";
-var urlPost = "http://localhost:8080/selection";
+// var urlGet =  "http://localhost:8080/data";
+// var urlPost = "http://localhost:8080/selection";
 
 class Container extends Component {
   constructor(props) {
@@ -40,7 +41,8 @@ class Container extends Component {
   }
 
 handleRunClick(clicked) {
-    fetch('http://localhost:8080/selection', {
+    // fetch('http://localhost:8080/selection', {
+      fetch(urlPost, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -48,7 +50,7 @@ handleRunClick(clicked) {
       method: "POST",
       body: JSON.stringify(data.getSender())
     });
-  window.setTimeout(this.refresh(), 1000);
+  window.setTimeout(this.refresh(), 2000);
 }
 
 refresh() {
@@ -60,6 +62,11 @@ refresh() {
     console.log(this.state.obj);
     console.log(this.state.estados);
     console.log(this.state.headers);
+}
+
+doubleRefresh(){
+  this.refresh();
+  this.refresh();
 }
 
   render() {

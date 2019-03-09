@@ -33,7 +33,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
 //Data
-import send from '../../data/send'
+import send, { getEstados } from '../../data/send'
 
 //Styles
 
@@ -271,7 +271,7 @@ class MiniDrawer extends React.Component {
               <ListItemText primary={"Algoritmos"} />
               {this.state.algOpen ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
-            {/* Sublista de problemas */}
+            {/* Sublista de algoritmos */}
             <Collapse in={this.state.algOpen} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {algoritmos.map(value => (
@@ -285,7 +285,18 @@ class MiniDrawer extends React.Component {
             </Collapse>
 
           </List>
+          {/* <List component="div" disablePadding>
+                {algoritmos.map(value => (
+                  <div className="colores">
 
+                  <ListItem button className={classes.nested} key={value.value} onClick={(e) => this.handleStoreAlg(value.value, e)}>
+                    <ListItemIcon colo> {icons.code} </ListItemIcon>
+                    <ListItemText inset primary={value.titulo} />
+                  </ListItem>
+                  </div>
+                ))}
+
+              </List> */}
         </Drawer>
 
 

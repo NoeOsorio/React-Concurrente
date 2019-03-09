@@ -3,8 +3,12 @@
 }
 
 #toolbar{
-    background-color: #3F52B5;
+    background-color: #2196F3;
 }
 #lateral{
-    background-color: #8895DC;
+    background-color: #90CAF9;
+}
+
+.colores{
+    color: rebeccapurple;
 }

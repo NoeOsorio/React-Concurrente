@@ -34,7 +34,7 @@
     vertical-align: middle;
 
     max-height: 600px;
-    max-width: 950px;
+    /* max-width: 950px; */
     background-color: #eee;
     border: 1px;
     border-radius: 5px ;
@@ -72,7 +72,7 @@
 }
 
 .tab-sub div{
-    background-color: #3F52B5;
+    background-color: #0D47A1;
     border-radius: 10px;
     color: white;
     margin: 5px;
@@ -85,7 +85,7 @@
     font-size: 30px;
     justify-content: center;
     vertical-align: middle;
-    background-color: #3F52B5;
+    background-color: #0D47A1;
     border: 1px;
     border-radius: 5px ;
     margin: 3px;
